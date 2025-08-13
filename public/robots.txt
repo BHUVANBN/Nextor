@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nextor.com/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /events
+Allow: /gallery
+Allow: /partners
+Allow: /verticals
+Allow: /contact
+
+# Crawl delay
+Crawl-delay: 1 
