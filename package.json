@@ -17,22 +17,26 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+    "@types/nodemailer": "^6.4.17",
+    "aos": "^2.3.4",
+    "dayjs": "^1.11.10",
+    "framer-motion": "^10.16.16",
+    "lucide-react": "^0.294.0",
+    "mongodb": "^6.18.0",
+    "mongoose": "^8.17.1",
     "next": "14.0.4",
+    "nodemailer": "^7.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "framer-motion": "^10.16.16",
-    "aos": "^2.3.4",
-    "swiper": "^11.0.5",
-    "dayjs": "^1.11.10",
     "react-hook-form": "^7.48.2",
     "react-intersection-observer": "^9.5.3",
-    "lucide-react": "^0.294.0"
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "@types/aos": "^3.0.7",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
@@ -57,4 +61,4 @@
   ],
   "author": "Nextor Team",
   "license": "MIT"
-} 
+}

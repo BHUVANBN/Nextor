@@ -1,12 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server';
+import connectDB from '@/lib/mongodb';
+import Contact from '@/models/Contact';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, phone, eventSelection, message } = body;
+    const { name, email, phone, eventServiceInterest, message, newsletterSubscribed } = body;
+
+    // Debug: Log received data
+    console.log('Received contact form data:', {
+      name,
+      email,
+      phone,
+      eventServiceInterest,
+      message,
+      newsletterSubscribed
+    });
 
     // Validate required fields
-    if (!name || !email || !eventSelection || !message) {
+    if (!name || !email || !eventServiceInterest || !message) {
+      console.log('Missing required fields:', { name, email, eventServiceInterest, message });
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -22,45 +35,74 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production, this would integrate with Google Sheets API
-    // For now, we'll simulate the integration
+    // Connect to MongoDB
+    await connectDB();
+    console.log('Connected to MongoDB successfully');
+
+    // Check if contact already exists with this email
+    const existingContact = await Contact.findOne({ email: email.toLowerCase() });
     
-    // Example Google Sheets integration:
-    // const sheets = google.sheets({ version: 'v4', auth: googleAuth });
-    // await sheets.spreadsheets.values.append({
-    //   spreadsheetId: process.env.GOOGLE_SHEETS_ID,
-    //   range: 'Sheet1!A:E',
-    //   valueInputOption: 'USER_ENTERED',
-    //   requestBody: {
-    //     values: [[
-    //       new Date().toISOString(),
-    //       name,
-    //       email,
-    //       phone || '',
-    //       eventSelection,
-    //       message
-    //     ]]
-    //   }
-    // });
+    if (existingContact) {
+      console.log('Updating existing contact:', existingContact._id);
+      // Update existing contact with new information
+      existingContact.name = name;
+      existingContact.phone = phone || '';
+      existingContact.eventServiceInterest = eventServiceInterest;
+      existingContact.message = message;
+      existingContact.newsletterSubscribed = newsletterSubscribed || false;
+      existingContact.updatedAt = new Date();
+      
+      await existingContact.save();
+      console.log('Updated existing contact successfully');
+      
+      return NextResponse.json(
+        { 
+          message: 'Contact information updated successfully!',
+          submissionId: existingContact._id,
+          timestamp: existingContact.updatedAt,
+          updated: true
+        },
+        { status: 200 }
+      );
+    }
 
-    // Simulate processing time
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Create new contact submission
+    const contactData = {
+      name,
+      email: email.toLowerCase(),
+      phone: phone || '',
+      eventServiceInterest,
+      message,
+      newsletterSubscribed: newsletterSubscribed || false,
+    };
 
-    // Log the submission (in production, this would go to a proper logging service)
-    console.log('Contact form submission:', {
-      timestamp: new Date().toISOString(),
+    console.log('Creating new contact with data:', contactData);
+
+    const contact = new Contact(contactData);
+
+    // Save to database
+    await contact.save();
+    console.log('New contact saved successfully with ID:', contact._id);
+
+    // Log the submission
+    console.log('Contact form submission saved to MongoDB:', {
+      id: contact._id,
+      timestamp: contact.createdAt,
       name,
       email,
       phone,
-      eventSelection,
+      eventServiceInterest,
       message,
+      newsletterSubscribed: contact.newsletterSubscribed,
     });
 
     // Return success response
     return NextResponse.json(
       { 
         message: 'Message sent successfully!',
-        submissionId: `sub_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        submissionId: contact._id,
+        timestamp: contact.createdAt,
+        updated: false
       },
       { status: 200 }
     );

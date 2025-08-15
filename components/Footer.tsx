@@ -10,7 +10,8 @@ import {
   Phone, 
   MapPin,
   ArrowUp,
-  Heart
+  Heart,
+  CheckCircle
 } from 'lucide-react';
 
 const Footer = () => {
@@ -202,7 +203,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Newsletter Signup */}
+        {/* Newsletter Info */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -215,21 +216,13 @@ const Footer = () => {
               Stay Updated with Nextor
             </h3>
             <p className="text-gray-400 mb-6">
-              Get the latest news about events, tournaments, and gaming innovations.
+              Subscribe to our newsletter when filling out the contact form above to get the latest news about events, tournaments, and gaming innovations.
             </p>
-            <div className="max-w-md mx-auto flex space-x-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg focus:outline-none focus:ring-2 focus:border-neon-blue focus:ring-neon-blue/50 transition-all duration-300 text-white placeholder-gray-500"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary px-6 py-3"
-              >
-                Subscribe
-              </motion.button>
+            <div className="max-w-md mx-auto">
+              <div className="flex items-center justify-center space-x-3 text-neon-blue">
+                <CheckCircle className="w-5 h-5" />
+                <span className="text-sm">Newsletter subscription now integrated with contact form</span>
+              </div>
             </div>
           </div>
         </motion.div>
