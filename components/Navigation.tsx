@@ -38,9 +38,9 @@ const Navigation = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/20 backdrop-blur-lg border border-white/10 rounded-b-2xl shadow-lg ${
         scrolled
-          ? 'bg-dark-900/95 backdrop-blur-md border-b border-dark-700'
+          ? 'bg-gray-100/95 backdrop-blur-md border-b border-dark-700'
           : 'bg-transparent'
       }`}
     >
@@ -51,10 +51,7 @@ const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-neon-blue to-neon-purple rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">N</span>
-            </div>
-            <span className="text-2xl font-bold text-white">Nextor</span>
+            <img src="\Copy_of_nextor_logo-removebg-preview.png" alt="Nextor Logo" className="w-30 h-20" />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -130,4 +127,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation; 
+export default Navigation;

@@ -14,11 +14,12 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
     minutes: 0,
     seconds: 0,
   });
+  const [currentTarget, setCurrentTarget] = useState(targetDate);
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
-      const target = new Date(targetDate).getTime();
+      const target = new Date(currentTarget).getTime();
       const difference = target - now;
 
       if (difference > 0) {
@@ -29,12 +30,15 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
 
         setTimeLeft({ days, hours, minutes, seconds });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        // Reset to a new target date (e.g., 7 days from now) for infinite loop
+        const newTarget = new Date(now + 7 * 24 * 60 * 60 * 1000).toISOString();
+        setCurrentTarget(newTarget);
+        setTimeLeft({ days: 7, hours: 0, minutes: 0, seconds: 0 });
       }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [currentTarget]);
 
   const timeUnits = [
     { label: 'Days', value: timeLeft.days },
@@ -73,4 +77,4 @@ const CountdownTimer = ({ targetDate }: CountdownTimerProps) => {
   );
 };
 
-export default CountdownTimer; 
+export default CountdownTimer;

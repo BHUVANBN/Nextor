@@ -71,10 +71,10 @@ const UpcomingEvents = () => {
             Upcoming <span className="text-gradient">Events</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto rounded-full mb-8" />
-                  <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          Join us for the most exciting esports events and gaming experiences. 
-          Don&apos;t miss out on the action!
-        </p>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Join us for the most exciting esports events and gaming experiences. 
+            Don&apos;t miss out on the action!
+          </p>
         </motion.div>
 
         {/* Countdown Timer */}
@@ -163,7 +163,7 @@ const UpcomingEvents = () => {
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-3 pt-4">
+                <div className="flex justify-center space-x-4 pt-4">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -171,7 +171,7 @@ const UpcomingEvents = () => {
                       e.stopPropagation();
                       scrollToContact();
                     }}
-                    className="btn-primary flex-1 text-sm py-3"
+                    className="btn-primary text-sm py-3 px-6"
                   >
                     Register Now
                   </motion.button>
@@ -183,7 +183,7 @@ const UpcomingEvents = () => {
                       e.stopPropagation();
                       window.open(event.streamUrl, '_blank');
                     }}
-                    className="btn-secondary text-sm py-3 px-4"
+                    className="btn-secondary text-sm py-3 px-6"
                   >
                     Watch
                   </motion.button>
@@ -221,4 +221,4 @@ const UpcomingEvents = () => {
   );
 };
 
-export default UpcomingEvents; 
+export default UpcomingEvents;
