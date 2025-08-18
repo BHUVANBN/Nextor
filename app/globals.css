@@ -82,6 +82,33 @@
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+  
+  /* Scrolling animations for partners */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+  
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-33.333%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-scroll-left {
+    animation: scroll-left var(--duration, 40s) linear infinite;
+  }
+  
+  .animate-scroll-right {
+    animation: scroll-right var(--duration, 40s) linear infinite;
+  }
 }
 
 /* Custom scrollbar */

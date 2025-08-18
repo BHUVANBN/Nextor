@@ -61,17 +61,8 @@ const HeroBanner = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mb-8"
           >
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 mb-4">
-              Ideate.
-            </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 mb-4">
-              Integrate.
-            </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 mb-4">
-              Innovate.
-            </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-neon-blue">
-              Inspire.
+            <p className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-300">
+              Ideate. Integrate. Innovate. <span className="text-neon-blue">Inspire.</span>
             </p>
           </motion.div>
         </motion.div>
@@ -127,7 +118,7 @@ const HeroBanner = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
         >
           <motion.button
             onClick={scrollToNext}
@@ -160,4 +151,4 @@ const HeroBanner = () => {
   );
 };
 
-export default HeroBanner; 
+export default HeroBanner;

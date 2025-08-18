@@ -37,22 +37,15 @@ const AboutUs = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-              Founded in 2020, Nextor has emerged as a revolutionary force in the esports and gaming industry. 
-              Our mission is to bridge the gap between traditional entertainment and cutting-edge gaming technology, 
-              creating immersive experiences that captivate audiences worldwide.
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ipsam provident a debitis praesentium quo neque dolorum et eligendi explicabo aut architecto tempora, aperiam odit officiis inventore natus magni doloribus?
             </p>
             
             <p className="text-lg text-gray-300 leading-relaxed">
-              We specialize in organizing high-stakes tournaments, developing innovative streaming platforms, 
-              and creating location-based entertainment experiences that bring gamers together both virtually 
-              and physically. Our commitment to excellence has earned us recognition as one of the leading 
-              esports companies in the industry.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos numquam deleniti officiis ipsam sint dolorem debitis quam alias, architecto labore praesentium nulla, id corporis? Laborum voluptates sit maxime enim provident.
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-              From grassroots competitions to international championships, Nextor has consistently delivered 
-              unforgettable gaming moments. Our team of passionate professionals works tirelessly to push 
-              the boundaries of what&apos;s possible in competitive gaming and entertainment.
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolor esse quo labore unde ratione voluptas necessitatibus itaque sed vitae. Totam aliquam labore harum, blanditiis possimus aliquid similique tempora distinctio.
             </p>
 
             {/* Stats */}
