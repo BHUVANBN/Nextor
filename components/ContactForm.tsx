@@ -9,8 +9,9 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
-  eventSelection: string;
+  eventServiceInterest: string;
   message: string;
+  newsletterSubscribed: boolean;
 }
 
 const ContactForm = () => {
@@ -25,7 +26,7 @@ const ContactForm = () => {
     reset,
   } = useForm<FormData>();
 
-  const eventOptions = [
+  const eventServiceOptions = [
     'Nextor Championship 2024',
     'Gaming Expo 2024',
     'Pro League Finals',
@@ -40,22 +41,26 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Debug: Log the data being sent
+    console.log('Form data being submitted:', data);
+
     try {
-      // Simulate API call to Google Sheets
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Mock successful submission
-      setSubmitStatus('success');
-      setSubmitMessage('Thank you for your message! We\'ll get back to you within 24 hours.');
-      reset();
-      
-      // In production, this would be:
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(data),
-      // });
-      // if (response.ok) { ... }
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setSubmitMessage('Thank you for your message! We\'ll get back to you within 24 hours.');
+        reset();
+      } else {
+        setSubmitStatus('error');
+        setSubmitMessage(result.error || 'Something went wrong. Please try again or contact us directly.');
+      }
       
     } catch (error) {
       setSubmitStatus('error');
@@ -250,30 +255,43 @@ const ContactForm = () => {
                 />
               </div>
 
-              {/* Event Selection */}
+              {/* Event/Service Selection */}
               <div>
-                <label htmlFor="eventSelection" className="block text-sm font-medium text-gray-300 mb-2">
-                  Event/Service Interest
+                <label htmlFor="eventServiceInterest" className="block text-sm font-medium text-gray-300 mb-2">
+                  Event/Service Interest *
                 </label>
                 <select
-                  {...register('eventSelection', { required: 'Please select an option' })}
-                  id="eventSelection"
+                  {...register('eventServiceInterest', { required: 'Please select an option' })}
+                  id="eventServiceInterest"
                   className={`w-full px-4 py-3 bg-dark-700 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-300 ${
-                    errors.eventSelection
+                    errors.eventServiceInterest
                       ? 'border-red-500 focus:ring-red-500/50'
                       : 'border-dark-600 focus:border-neon-blue focus:ring-neon-blue/50'
                   }`}
                 >
                   <option value="">Select an event or service</option>
-                  {eventOptions.map((option) => (
+                  {eventServiceOptions.map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
                   ))}
                 </select>
-                {errors.eventSelection && (
-                  <p className="mt-1 text-sm text-red-400">{errors.eventSelection.message}</p>
+                {errors.eventServiceInterest && (
+                  <p className="mt-1 text-sm text-red-400">{errors.eventServiceInterest.message}</p>
                 )}
+              </div>
+
+              {/* Newsletter Subscription */}
+              <div className="flex items-center space-x-3">
+                <input
+                  {...register('newsletterSubscribed')}
+                  type="checkbox"
+                  id="newsletterSubscribed"
+                  className="w-4 h-4 text-neon-blue bg-dark-700 border-dark-600 rounded focus:ring-neon-blue focus:ring-2"
+                />
+                <label htmlFor="newsletterSubscribed" className="text-sm text-gray-300">
+                  Subscribe to our newsletter for updates about events, tournaments, and gaming innovations
+                </label>
               </div>
 
               {/* Message Field */}
