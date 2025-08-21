@@ -10,6 +10,7 @@ import OurVerticals from '@/components/OurVerticals';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
+import Hyperspeed from '@/components/Hyperspeed';
 
 export default function Home() {
   useEffect(() => {
@@ -34,7 +35,9 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
+     
       <HeroBanner />
+      
       <AboutUs />
       <UpcomingEvents />
       <Gallery />

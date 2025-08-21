@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { ChevronDown, Play } from 'lucide-react';
+import Hyperspeed from './Hyperspeed';
+import './Hyperspeed.css';
 
 const HeroBanner = () => {
   const scrollToNext = () => {
@@ -16,7 +18,7 @@ const HeroBanner = () => {
       {/* Background Video/Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-dark-950 via-dark-900 to-dark-800" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center bg-no-repeat opacity-20" />
+        <Hyperspeed />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent" />
       </div>
 
