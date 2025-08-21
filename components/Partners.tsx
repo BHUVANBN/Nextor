@@ -187,16 +187,6 @@ const Partners = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {
-                  window.open('https://example.com/register', '_blank');
-                }}
-                className="btn-primary"
-              >
-                Register Now
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => {
                   window.open('https://example.com/watch', '_blank');
                 }}
                 className="btn-primary"

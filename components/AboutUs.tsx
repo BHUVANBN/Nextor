@@ -37,15 +37,15 @@ const AboutUs = () => {
             className="space-y-6"
           >
             <p className="text-lg text-gray-300 leading-relaxed">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ipsam provident a debitis praesentium quo neque dolorum et eligendi explicabo aut architecto tempora, aperiam odit officiis inventore natus magni doloribus?
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ipsam provident a debitis praesentium quo neque dolorum et eligendi explicabo aut architecto tempora, aperiam odit officiis inventore natus magni doloribus?
             </p>
-            
+
             <p className="text-lg text-gray-300 leading-relaxed">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos numquam deleniti officiis ipsam sint dolorem debitis quam alias, architecto labore praesentium nulla, id corporis? Laborum voluptates sit maxime enim provident.
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolor esse quo labore unde ratione voluptas necessitatibus itaque sed vitae. Totam aliquam labore harum, blanditiis possimus aliquid similique tempora distinctio.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolor esse quo labore unde ratione voluptas necessitatibus itaque sed vitae. Totam aliquam labore harum, blanditiis possimus aliquid similique tempora distinctio.
             </p>
 
             {/* Stats */}
@@ -78,11 +78,20 @@ const AboutUs = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <div className="aspect-video bg-gradient-to-br from-dark-800 to-dark-700 relative">
                 {/* Placeholder for video/image */}
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')] bg-cover bg-center bg-no-repeat opacity-80" />
-                
+                {/* <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80')] bg-cover bg-center bg-no-repeat opacity-80" /> */}
+                {/* <div className="img rounded-[48px] w-wclamp344 h-hclamp344 xl:w-[425px] xl:h-[400px] z-10 md:block self-start bg-elevation_one bg-cover bg-center bg-no-repeat bg-[url('\image.png')] hidden" style="transform: perspective(500px) rotateX(0deg) rotateY(0deg); transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);"></div> */}
+                <div
+                  className="img rounded-[48px] w-wclamp344 h-hclamp344 xl:w-[425px] xl:h-[400px] z-10 md:block self-start bg-elevation_one bg-cover bg-center bg-no-repeat bg-[url('public/image.png')] hidden"
+                  style={{
+                    transform: "perspective(500px) rotateX(0deg) rotateY(0deg)",
+                    transition:
+                      "width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                  }}
+                ></div>
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent" />
-                
+
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div
@@ -123,7 +132,7 @@ const AboutUs = () => {
               Our Mission
             </h3>
             <p className="text-lg text-gray-300 leading-relaxed">
-              To revolutionize the gaming industry by creating innovative, inclusive, and immersive experiences 
+              To revolutionize the gaming industry by creating innovative, inclusive, and immersive experiences
               that bring people together through the power of competitive gaming and cutting-edge technology.
             </p>
           </div>

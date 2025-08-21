@@ -41,7 +41,7 @@ const UpcomingEvents = () => {
       date: '2024-05-10',
       time: '20:00 UTC',
       location: 'Madison Square Garden',
-      description: 'The culmination of the Pro League season with the top 8 teams battling for supremacy and glory.',
+      description: 'Experience the latest in gaming technology, meet industry professionals, and participate in exclusive tournaments.',
       game: 'FPS & MOBA',
       participants: '8 Teams',
       prize: '$250,000',
@@ -163,7 +163,7 @@ const UpcomingEvents = () => {
                 </p>
 
                 {/* Action Buttons */}
-                <div className="flex justify-center space-x-4 pt-4">
+                <div className="flex justify-down space-x-4 pt-4">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
